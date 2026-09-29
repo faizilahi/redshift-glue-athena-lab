@@ -1,0 +1,44 @@
+{
+  "databases": [
+    {
+      "Name": "rs_export"
+    }
+  ],
+  "tables": [
+    {
+      "Name": "fact_claim_line",
+      "DatabaseName": "rs_export",
+      "StorageDescriptor": {
+        "Location": "s3://hf-rs-export/fact_claim_line/",
+        "Columns": [
+          {
+            "Name": "claim_line_id",
+            "Type": "string"
+          },
+          {
+            "Name": "payer_id",
+            "Type": "string"
+          },
+          {
+            "Name": "provider_id",
+            "Type": "string"
+          },
+          {
+            "Name": "allowed_amount",
+            "Type": "double"
+          },
+          {
+            "Name": "paid_amount",
+            "Type": "double"
+          }
+        ]
+      },
+      "PartitionKeys": [
+        {
+          "Name": "service_date",
+          "Type": "date"
+        }
+      ]
+    }
+  ]
+}
